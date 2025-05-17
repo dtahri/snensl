@@ -1,5 +1,5 @@
 // Initial Data
-const validPasswords = Array.from({ length: 45 }, (_, i) => `pass${i + 1}`);
+const validPasswords = ['RgT2025EnSl', ...Array.from({ length: 44 }, (_, i) => `pass${i + 2}`)];
 let currentUser = null;
 let currentYear = '2025';
 
@@ -186,14 +186,14 @@ function renderTopics() {
         return;
     }
     
-    if (currentUser === 'pass1') {
+    if (currentUser === 'RgT2025EnSl') {
         downloadExcelBtn.classList.remove('hidden');
     } else {
         downloadExcelBtn.classList.add('hidden');
     }
     
     // Filter topics to show only current user's topics (unless admin)
-    const userTopics = currentUser === 'pass1' 
+    const userTopics = currentUser === 'RgT2025EnSl' 
         ? topics[currentYear] 
         : topics[currentYear].filter(topic => topic.addedBy === currentUser);
     
@@ -224,7 +224,7 @@ function renderTopics() {
         const actionsDiv = document.createElement('div');
         actionsDiv.className = 'topic-actions';
         
-        if (topic.addedBy === currentUser || currentUser === 'pass1') {
+        if (topic.addedBy === currentUser || currentUser === 'RgT2025EnSl') {
             const deleteBtn = document.createElement('button');
             deleteBtn.className = 'action-btn delete-btn';
             deleteBtn.innerHTML = 'حذف';
@@ -234,7 +234,7 @@ function renderTopics() {
             actionsDiv.appendChild(deleteBtn);
         }
         
-        if (currentUser === 'pass1') {
+        if (currentUser === 'RgT2025EnSl') {
             if (topic.status !== 'accepted') {
                 const acceptBtn = document.createElement('button');
                 acceptBtn.className = 'action-btn accept-btn';
@@ -270,7 +270,7 @@ function renderTopics() {
 function renderCommittees() {
     committeeList.innerHTML = '';
     
-    if (currentUser === 'pass1') {
+    if (currentUser === 'RgT2025EnSl') {
         downloadCommitteeExcelBtn.classList.remove('hidden');
         manageDiscussantsBtn.classList.remove('hidden');
     } else {
@@ -284,7 +284,7 @@ function renderCommittees() {
     }
     
     // Filter committees to show only current user's committees (unless admin)
-    const userCommittees = currentUser === 'pass1' 
+    const userCommittees = currentUser === 'RgT2025EnSl' 
         ? committees[currentYear] 
         : committees[currentYear].filter(committee => committee.addedBy === currentUser);
     
@@ -312,7 +312,7 @@ function renderCommittees() {
         const actionsDiv = document.createElement('div');
         actionsDiv.className = 'topic-actions';
         
-        if (committee.addedBy === currentUser || currentUser === 'pass1') {
+        if (committee.addedBy === currentUser || currentUser === 'RgT2025EnSl') {
             const deleteBtn = document.createElement('button');
             deleteBtn.className = 'action-btn delete-btn';
             deleteBtn.innerHTML = 'حذف';
@@ -373,7 +373,7 @@ function openCommitteeModal() {
     // Fill topics select with only current user's accepted topics (or all if admin)
     committeeTopicSelect.innerHTML = '<option value="">اختر الموضوع</option>';
     
-    const userTopics = currentUser === 'pass1' 
+    const userTopics = currentUser === 'RgT2025EnSl' 
         ? topics[currentYear].filter(t => t.status === 'accepted')
         : topics[currentYear].filter(t => t.addedBy === currentUser && t.status === 'accepted');
     
