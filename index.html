@@ -3,24 +3,24 @@
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ไูวใ ลฯวัษ ใๆวึํฺ วแสฮัฬ</title>
+    <title>ูุธุงู… ุฅุฏุงุฑุฉ ู…ูุงุถูุน ุงูุชุฎุฑุฌ</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
     <!-- Login Page -->
     <div id="login-page" class="login-container">
-        <h2>สำฬํแ วแฯฮๆแ</h2>
+        <h2>ุชุณุฌูู ุงูุฏุฎูู</h2>
         <p id="login-error" class="error-message"></p>
-        <input type="password" id="password" placeholder="รฯฮแ ฿แใษ วแใัๆั">
-        <button id="login-btn">ฯฮๆแ</button>
+        <input type="password" id="password" placeholder="ุฃุฏุฎู ููู…ุฉ ุงูู…ุฑูุฑ">
+        <button id="login-btn">ุฏุฎูู</button>
     </div>
 
     <!-- Main Content -->
     <div id="main-content" class="hidden">
         <header>
-            <h1 id="current-year">ไูวใ ลฯวัษ ใๆวึํฺ วแสฮัฬ</h1>
-            <button id="logout-btn" class="logout-btn">สำฬํแ วแฮัๆฬ</button>
+            <h1 id="current-year">ูุธุงู… ุฅุฏุงุฑุฉ ู…ูุงุถูุน ุงูุชุฎุฑุฌ</h1>
+            <button id="logout-btn" class="logout-btn">ุชุณุฌูู ุงูุฎุฑูุฌ</button>
         </header>
         
         <nav class="year-nav">
@@ -32,15 +32,15 @@
         
         <div class="content-container">
             <div class="subpages-tabs">
-                <button data-page="topics" class="active">วแใๆวึํฺ</button>
-                <button data-page="committee">แฬไษ วแใไวÞิษ</button>
+                <button data-page="topics" class="active">ุงูู…ูุงุถูุน</button>
+                <button data-page="committee">ูุฌูุฉ ุงูู…ูุงูุดุฉ</button>
             </div>
             
             <!-- Topics Content -->
             <div id="topics-content" class="page-content">
                 <div class="topics-header">
-                    <button id="new-topic-btn" class="primary-btn">+ ใๆึๆฺ ฬฯํฯ</button>
-                    <button id="download-excel-btn" class="primary-btn hidden">สอใํแ ฿ใแÝ Excel</button>
+                    <button id="new-topic-btn" class="primary-btn">+ ู…ูุถูุน ุฌุฏูุฏ</button>
+                    <button id="download-excel-btn" class="primary-btn hidden">ุชุญู…ูู ูู…ูู Excel</button>
                 </div>
                 <div id="topics-list" class="cards-container"></div>
             </div>
@@ -48,9 +48,9 @@
             <!-- Committee Content -->
             <div id="committee-content" class="page-content hidden">
                 <div class="committee-header">
-                    <button id="new-committee-btn" class="primary-btn">วฮสั แฬไษ ใไวÞิษ แใๆวึํฺ฿</button>
-                    <button id="download-committee-excel-btn" class="primary-btn hidden">สอใํแ แฬวไ วแใไวÞิษ</button>
-                    <button id="manage-discussants-btn" class="primary-btn hidden">ลฯวัษ วแใไวÞิํไ</button>
+                    <button id="new-committee-btn" class="primary-btn">ุงุฎุชุฑ ูุฌูุฉ ู…ูุงูุดุฉ ูู…ูุงุถูุนู</button>
+                    <button id="download-committee-excel-btn" class="primary-btn hidden">ุชุญู…ูู ูุฌุงู ุงูู…ูุงูุดุฉ</button>
+                    <button id="manage-discussants-btn" class="primary-btn hidden">ุฅุฏุงุฑุฉ ุงูู…ูุงูุดูู</button>
                 </div>
                 <div id="committee-list" class="cards-container"></div>
             </div>
@@ -60,30 +60,30 @@
     <!-- Add Topic Modal -->
     <div id="topic-modal" class="modal hidden">
         <div class="modal-content">
-            <h2>ลึวÝษ ใๆึๆฺ ฬฯํฯ</h2>
+            <h2>ุฅุถุงูุฉ ู…ูุถูุน ุฌุฏูุฏ</h2>
             <form id="topic-form">
                 <div class="form-group">
-                    <label for="supervisor-name">แÞศ วแใฤุั:</label>
+                    <label for="supervisor-name">ููุจ ุงูู…ุคุทุฑ:</label>
                     <input type="text" id="supervisor-name" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="topic-title">วแใๆึๆฺ:</label>
+                    <label for="topic-title">ุงูู…ูุถูุน:</label>
                     <input type="text" id="topic-title" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="topic-profile">วแใแใอ:</label>
+                    <label for="topic-profile">ุงูู…ูู…ุญ:</label>
                     <select id="topic-profile" required>
-                        <option value="">วฮสั วแใแใอ</option>
-                        <option value="ใสๆำุ">ใสๆำุ</option>
-                        <option value="หวไๆํ">หวไๆํ</option>
+                        <option value="">ุงุฎุชุฑ ุงูู…ูู…ุญ</option>
+                        <option value="ู…ุชูุณุท">ู…ุชูุณุท</option>
+                        <option value="ุซุงููู">ุซุงููู</option>
                     </select>
                 </div>
                 
                 <div class="form-actions">
-                    <button type="submit" class="primary-btn">อÝู</button>
-                    <button type="button" id="cancel-modal-btn" class="secondary-btn">ลแÛวม</button>
+                    <button type="submit" class="primary-btn">ุญูุธ</button>
+                    <button type="button" id="cancel-modal-btn" class="secondary-btn">ุฅูุบุงุก</button>
                 </div>
             </form>
         </div>
@@ -92,32 +92,32 @@
     <!-- Add Committee Modal -->
     <div id="committee-modal" class="modal hidden">
         <div class="modal-content">
-            <h2>วฮสํวั แฬไษ วแใไวÞิษ</h2>
+            <h2>ุงุฎุชูุงุฑ ูุฌูุฉ ุงูู…ูุงูุดุฉ</h2>
             <form id="committee-form">
                 <div class="form-group">
-                    <label for="committee-topic">วแใๆึๆฺ:</label>
+                    <label for="committee-topic">ุงูู…ูุถูุน:</label>
                     <select id="committee-topic" required>
-                        <option value="">วฮสั วแใๆึๆฺ</option>
+                        <option value="">ุงุฎุชุฑ ุงูู…ูุถูุน</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-    <label for="first-discussant">วแใไวÞิ วแรๆแ:</label>
+    <label for="first-discussant">ุงูู…ูุงูุด ุงูุฃูู:</label>
     <select id="first-discussant" size="5" required>
-        <option value="">วฮสั วแใไวÞิ วแรๆแ</option>
+        <option value="">ุงุฎุชุฑ ุงูู…ูุงูุด ุงูุฃูู</option>
     </select>
 </div>
 
 <div class="form-group">
-    <label for="second-discussant">วแใไวÞิ วแหวไํ:</label>
+    <label for="second-discussant">ุงูู…ูุงูุด ุงูุซุงูู:</label>
     <select id="second-discussant" size="5" required>
-        <option value="">วฮสั วแใไวÞิ วแหวไํ</option>
+        <option value="">ุงุฎุชุฑ ุงูู…ูุงูุด ุงูุซุงูู</option>
     </select>
 </div>
                 
                 <div class="form-actions">
-                    <button type="submit" class="primary-btn">อÝู</button>
-                    <button type="button" id="cancel-committee-modal-btn" class="secondary-btn">ลแÛวม</button>
+                    <button type="submit" class="primary-btn">ุญูุธ</button>
+                    <button type="button" id="cancel-committee-modal-btn" class="secondary-btn">ุฅูุบุงุก</button>
                 </div>
             </form>
         </div>
@@ -126,35 +126,35 @@
     <!-- Manage Discussants Modal -->
     <div id="discussants-modal" class="modal hidden">
         <div class="modal-content">
-            <h2>ลฯวัษ วแใไวÞิํไ</h2>
+            <h2>ุฅุฏุงุฑุฉ ุงูู…ูุงูุดูู</h2>
             <div class="discussants-management">
                 <div class="discussants-list-container">
-                    <h3>Þวฦใษ วแใไวÞิํไ</h3>
+                    <h3>ูุงุฆู…ุฉ ุงูู…ูุงูุดูู</h3>
                     <ul id="discussants-list"></ul>
                 </div>
                 <div class="discussants-controls">
                     <div class="form-group">
-                        <label for="new-discussant">ลึวÝษ ใไวÞิ ฬฯํฯ:</label>
-                        <input type="text" id="new-discussant" placeholder="วำใ วแใไวÞิ">
-                        <button id="add-discussant-btn" class="primary-btn">ลึวÝษ</button>
+                        <label for="new-discussant">ุฅุถุงูุฉ ู…ูุงูุด ุฌุฏูุฏ:</label>
+                        <input type="text" id="new-discussant" placeholder="ุงุณู… ุงูู…ูุงูุด">
+                        <button id="add-discussant-btn" class="primary-btn">ุฅุถุงูุฉ</button>
                     </div>
                     <div class="form-group">
-                        <label for="max-discussant-usage">สÛํํั วแอฯ วแรÞี์ แวำสฮฯวใ วแใไวÞิ:</label>
+                        <label for="max-discussant-usage">ุชุบููุฑ ุงูุญุฏ ุงูุฃูุตู ูุงุณุชุฎุฏุงู… ุงูู…ูุงูุด:</label>
                         <select id="discussant-to-limit" disabled>
-                            <option value="">วฮสั วแใไวÞิ</option>
+                            <option value="">ุงุฎุชุฑ ุงูู…ูุงูุด</option>
                         </select>
                         <select id="max-discussant-usage" disabled>
-                            <option value="1">1 ใัษ</option>
-                            <option value="2">2 ใัวส</option>
-                            <option value="3">3 ใัวส</option>
-                            <option value="4">4 ใัวส</option>
+                            <option value="1">1 ู…ุฑุฉ</option>
+                            <option value="2">2 ู…ุฑุงุช</option>
+                            <option value="3">3 ู…ุฑุงุช</option>
+                            <option value="4">4 ู…ุฑุงุช</option>
                         </select>
-                        <button id="update-limit-btn" class="primary-btn" disabled>สอฯํห</button>
+                        <button id="update-limit-btn" class="primary-btn" disabled>ุชุญุฏูุซ</button>
                     </div>
                 </div>
             </div>
             <div class="form-actions">
-                <button type="button" id="close-discussants-modal-btn" class="primary-btn">อÝู ๆลÛแวÞ</button>
+                <button type="button" id="close-discussants-modal-btn" class="primary-btn">ุญูุธ ูุฅุบูุงู</button>
             </div>
         </div>
     </div>
