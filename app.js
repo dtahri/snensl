@@ -1,4 +1,4 @@
-﻿// Initial Data
+// Initial Data
 const validPasswords = Array.from({ length: 45 }, (_, i) => `pass${i + 1}`);
 let currentUser = null;
 let currentYear = '2025';
