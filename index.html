@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>‰Ÿ«„ ≈œ«—… „Ê«÷Ì⁄ «· Œ—Ã</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.sheetjs.com/xlsx-0.19.3/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="login-page" class="login-container">
+        <h2> ”ÃÌ· «·œŒÊ·</h2>
+        <p id="login-error" class="error-message"></p>
+        <input type="password" id="password" placeholder="√œŒ· ﬂ·„… «·„—Ê—">
+        <button id="login-btn">œŒÊ·</button>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="hidden">
+        <header>
+            <h1 id="current-year">‰Ÿ«„ ≈œ«—… „Ê«÷Ì⁄ «· Œ—Ã</h1>
+            <button id="logout-btn" class="logout-btn"> ”ÃÌ· «·Œ—ÊÃ</button>
+        </header>
+        
+        <nav class="year-nav">
+            <button data-year="2025">2025</button>
+            <button data-year="2026">2026</button>
+            <button data-year="2027">2027</button>
+            <button data-year="2028">2028</button>
+        </nav>
+        
+        <div class="content-container">
+            <div class="subpages-tabs">
+                <button data-page="topics" class="active">«·„Ê«÷Ì⁄</button>
+                <button data-page="committee">·Ã‰… «·„‰«ﬁ‘…</button>
+            </div>
+            
+            <!-- Topics Content -->
+            <div id="topics-content" class="page-content">
+                <div class="topics-header">
+                    <button id="new-topic-btn" class="primary-btn">+ „Ê÷Ê⁄ ÃœÌœ</button>
+                    <button id="download-excel-btn" class="primary-btn hidden"> Õ„Ì· ﬂ„·› Excel</button>
+                </div>
+                <div id="topics-list" class="cards-container"></div>
+            </div>
+            
+            <!-- Committee Content -->
+            <div id="committee-content" class="page-content hidden">
+                <div class="committee-header">
+                    <button id="new-committee-btn" class="primary-btn">«Œ — ·Ã‰… „‰«ﬁ‘… ·„Ê«÷Ì⁄ﬂ</button>
+                    <button id="download-committee-excel-btn" class="primary-btn hidden"> Õ„Ì· ·Ã«‰ «·„‰«ﬁ‘…</button>
+                    <button id="manage-discussants-btn" class="primary-btn hidden">≈œ«—… «·„‰«ﬁ‘Ì‰</button>
+                </div>
+                <div id="committee-list" class="cards-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Topic Modal -->
+    <div id="topic-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>≈÷«›… „Ê÷Ê⁄ ÃœÌœ</h2>
+            <form id="topic-form">
+                <div class="form-group">
+                    <label for="supervisor-name">·ﬁ» «·„ƒÿ—:</label>
+                    <input type="text" id="supervisor-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="topic-title">«·„Ê÷Ê⁄:</label>
+                    <input type="text" id="topic-title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="topic-profile">«·„·„Õ:</label>
+                    <select id="topic-profile" required>
+                        <option value="">«Œ — «·„·„Õ</option>
+                        <option value="„ Ê”ÿ">„ Ê”ÿ</option>
+                        <option value="À«‰ÊÌ">À«‰ÊÌ</option>
+                    </select>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="primary-btn">Õ›Ÿ</button>
+                    <button type="button" id="cancel-modal-btn" class="secondary-btn">≈·€«¡</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Committee Modal -->
+    <div id="committee-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>«Œ Ì«— ·Ã‰… «·„‰«ﬁ‘…</h2>
+            <form id="committee-form">
+                <div class="form-group">
+                    <label for="committee-topic">«·„Ê÷Ê⁄:</label>
+                    <select id="committee-topic" required>
+                        <option value="">«Œ — «·„Ê÷Ê⁄</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+    <label for="first-discussant">«·„‰«ﬁ‘ «·√Ê·:</label>
+    <select id="first-discussant" size="5" required>
+        <option value="">«Œ — «·„‰«ﬁ‘ «·√Ê·</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="second-discussant">«·„‰«ﬁ‘ «·À«‰Ì:</label>
+    <select id="second-discussant" size="5" required>
+        <option value="">«Œ — «·„‰«ﬁ‘ «·À«‰Ì</option>
+    </select>
+</div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="primary-btn">Õ›Ÿ</button>
+                    <button type="button" id="cancel-committee-modal-btn" class="secondary-btn">≈·€«¡</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Manage Discussants Modal -->
+    <div id="discussants-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>≈œ«—… «·„‰«ﬁ‘Ì‰</h2>
+            <div class="discussants-management">
+                <div class="discussants-list-container">
+                    <h3>ﬁ«∆„… «·„‰«ﬁ‘Ì‰</h3>
+                    <ul id="discussants-list"></ul>
+                </div>
+                <div class="discussants-controls">
+                    <div class="form-group">
+                        <label for="new-discussant">≈÷«›… „‰«ﬁ‘ ÃœÌœ:</label>
+                        <input type="text" id="new-discussant" placeholder="«”„ «·„‰«ﬁ‘">
+                        <button id="add-discussant-btn" class="primary-btn">≈÷«›…</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="max-discussant-usage"> €ÌÌ— «·Õœ «·√ﬁ’Ï ·«” Œœ«„ «·„‰«ﬁ‘:</label>
+                        <select id="discussant-to-limit" disabled>
+                            <option value="">«Œ — «·„‰«ﬁ‘</option>
+                        </select>
+                        <select id="max-discussant-usage" disabled>
+                            <option value="1">1 „—…</option>
+                            <option value="2">2 „—« </option>
+                            <option value="3">3 „—« </option>
+                            <option value="4">4 „—« </option>
+                        </select>
+                        <button id="update-limit-btn" class="primary-btn" disabled> ÕœÌÀ</button>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" id="close-discussants-modal-btn" class="primary-btn">Õ›Ÿ Ê≈€·«ﬁ</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
