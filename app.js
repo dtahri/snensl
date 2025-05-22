@@ -1,5 +1,5 @@
 // Initial Data
-const validPasswords = ['RgT2025EnSl', ...Array.from({ length: 44 }, (_, i) => `pass${i + 2}`)];
+const validPasswords = ['RgT2025EnSl', 'A3$dF', 'zX#7k', 'm9@Lp', 'Q2!vB', 'nT6$e', 'G#1yW', 'o9Z@c', 'Hx3!M', 'b$E2t', 'J7q#R', 'V!4sN', 'k@W5d', 'U#v9g', 'yL6$B', 'p!T3z', 'D@r1K', 's#8oM', 'Zx2$h', 'D!c7M', 'Lw@5j', 'C#o3e', 't7!NZ', 'M2$dV', 'aP#9f', 'B!q6y', 'hX@4G', 'N#1zw', 'j6$LT', 'R!v2c', 'e@M7b', 'i#o5Q', 'O3$Nd', 'f!C9x', 'K@y8W', 'xZ#1p', 'E4!uv', 'g@Rw2', 'T#6ay', 'q!9BC', 'W@z5m', 'Y#7Lo', 'd!K8r', 'vP@2x', 'S#o4j'];
 let currentUser = null;
 let currentYear = '2025';
 
